@@ -64,9 +64,7 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="#top" class="nav-link scrollLink">Home</a></li>
                 <li><a href="#sponsors" class="nav-link scrollLink">Sponsors</a></li>
-                <li><a href="#matches" class="nav-link scrollLink">Matches</a></li>
 
-                <li><a href="#news" class="nav-link scrollLink">Club News</a></li>
                 <li><a href="#contact" class="nav-link scrollLink">Contact</a></li>
               </ul>
             </nav>
@@ -153,170 +151,14 @@
   {% else %}
     <p>There are no sponsors at the moment.  Join our mailing list and be the first to know.</p>
   {% endif %}
-      <a href='mailto:{% get_content "email" "info@grandviewfc.org"%}' class="text-light">{% get_content "sponsor_appeal" "Contact Grandview FC and become a sponsor today!" %}</a>
+      <p class="text-center">
+      <a href='mailto:{% get_content "email" "info@grandviewfc.org"%}' class="text-light  btn btn-warning">{% get_content "sponsor_appeal" "Contact Grandview FC and become a sponsor today!" %}</a>
+      </p>
     </div>
 
 
-    <a id="matches"></a>
 
-    <div class="site-section bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="widget-next-match">
-              <div class="widget-title">
-                <h3>Next Match</h3>
-              </div>
-              <div class="widget-body mb-3">
-                <div class="widget-vs">
-                  <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
-                    <div class="team-1 text-center">
-                      <img src="{% static 'web/images/logo_1.png'%}" alt="Image">
-                      <h3>Football League</h3>
-                    </div>
-                    <div>
-                      <span class="vs"><span>VS</span></span>
-                    </div>
-                    <div class="team-2 text-center">
-                      <img src="{% static 'web/images/logo_2.png'%}" alt="Image">
-                      <h3>Soccer</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="text-center widget-vs-contents mb-4">
-                <h4>World Cup League</h4>
-                <p class="mb-5">
-                  <span class="d-block">December 20th, 2020</span>
-                  <span class="d-block">9:30 AM GMT+0</span>
-                  <strong class="text-primary">New Euro Arena</strong>
-                </p>
-
-                <div id="date-countdown2" class="pb-1"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-
-            <div class="widget-next-match">
-              <table class="table custom-table">
-                <thead>
-                  <tr>
-                    <th>P</th>
-                    <th>Team</th>
-                    <th>W</th>
-                    <th>D</th>
-                    <th>L</th>
-                    <th>PTS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td><strong class="text-white">Football League</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td><strong class="text-white">Soccer</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td><strong class="text-white">Juvendo</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td><strong class="text-white">French Football League</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td><strong class="text-white">Legia Abante</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td><strong class="text-white">Gliwice League</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td><strong class="text-white">Cornika</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td><strong class="text-white">Gravity Smash</strong></td>
-                    <td>22</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>140</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div> <!-- .site-section -->
-
-    <a id="news"></a>
-    <div class="container site-section">
-      <div class="row">
-        <div class="col-6 title-section">
-          <h2 class="heading">Club News</h2>
-        </div>
-      </div>
-
-   {% if news_list %}
-                <div class="row">
-    {% for news in news_list %}
-         <div class="col-lg-6 m-1">
-          <div class="custom-media d-flex">
-            <div class="img mr-4">
-              <img src="{{ news.image.url }}" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <span class="meta">{{ news.created_on }}</span>
-              <h3 class="mb-4"><a href="#">{{ hews.headline }}</a></h3>
-              <p>{{ news.summary }}</p>
-              <p><a href="#" class="text-light">Read more</a></p>
-            </div>
-          </div>
-         </div>
-
-    {% endfor %}
-                </div>
-
-  {% else %}
-    <p>No news at the moment.  Join our mailing list and be the first to know.</p>
-  {% endif %}
-</div>
 
 <a id="contact"></a>
 
@@ -329,7 +171,6 @@
               <ul class="list-unstyled links">
                 <li><a href="#top" class="scrollLink">Home</a></li>
                 <li><a href="#sponsors" class="scrollLink">Sponsors</a></li>
-                <li><a href="#matches" class="scrollLink">Matches</a></li>
                 <li><a href="#news" class="scrollLink">Club News</a></li>
                 <li><a href="#contact" class="scrollLink">Contact</a></li>
               </ul>

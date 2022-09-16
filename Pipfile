@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.2.*"
+django-hashid-field = "*"
+python-dotenv = "*"
+django-storages = "*"
+boto3 = "*"
+whitenoise = "*"
+pyteamsnap = {file = "https://github.com/anthonyscorrea/pyteamsnap/archive/refs/heads/master.zip"}
+django-oauth-toolkit = "*"
+django-cors-middleware = "*"
+mysqlclient = "*"
+
+[dev-packages]
+pre-commit = "*"
+
+[requires]
+python_version = "3.8"

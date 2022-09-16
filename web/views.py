@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from web.models import Content
+from web.models import News
 from web.models import Product
 from web.models import Sponsor
 
@@ -16,6 +17,7 @@ def index(request):
         "num_books": num_books,
         "product_list": Product.objects.filter(is_active=True),
         "sponsor_list": Sponsor.objects.filter(is_active=True),
+        "news_list": News.objects.filter(is_active=True),
     }
 
     # Render the HTML template index.html with the data in the context variable

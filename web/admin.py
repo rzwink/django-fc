@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Content
+from .models import News
 from .models import Product
 from .models import Sponsor
 
@@ -38,9 +39,19 @@ class SponsorAdmin(admin.ModelAdmin):
 
 
 @admin.register(Content)
-class SponsorAdmin(admin.ModelAdmin):
+class ContentAdmin(admin.ModelAdmin):
     list_display = [
         "id",
         "slug",
         "content",
+    ]
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "headline",
+        "summary",
+        "created_on",
     ]

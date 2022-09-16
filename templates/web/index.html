@@ -30,8 +30,9 @@
 
   <link rel="stylesheet" href="{% static 'web/css/style.css'%}">
 
-<link rel="icon" href="{% static '/web/images/favicon.ico'%}" type="image/x-icon">
+  <link rel="icon" href="{% static '/web/images/favicon.ico'%}" type="image/x-icon">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 </head>
 
@@ -61,12 +62,12 @@
           <div class="ml-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="#top" class="nav-link">Home</a></li>
-                <li><a href="#sponsors" class="nav-link">Sponsors</a></li>
-                <li><a href="#matches" class="nav-link">Matches</a></li>
+                <li class="active"><a href="#top" class="nav-link scrollLink">Home</a></li>
+                <li><a href="#sponsors" class="nav-link scrollLink">Sponsors</a></li>
+                <li><a href="#matches" class="nav-link scrollLink">Matches</a></li>
 
-                <li><a href="#news" class="nav-link">Club News</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#news" class="nav-link scrollLink">Club News</a></li>
+                <li><a href="#contact" class="nav-link scrollLink">Contact</a></li>
               </ul>
             </nav>
 
@@ -139,9 +140,9 @@
               <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }} Logo" class="img-fluid">
             </div>
             <div class="text">
-              <h3 class="mb-4"><a href="#">{{ sponsor.name }} </a></h3>
+              <h1 class="mb-4"><a href="#" class="text-light">{{ sponsor.name }} </a></h1>
               <p>{{ sponsor.description }} </p>
-              <p><a href="{{ sponsor.link }}">Link </a></p>
+              <h3 class="mb-4"><a href="{{ sponsor.link }}" target="_new"  class="text-light">Learn More</a></h3>
             </div>
           </div>
         </div>
@@ -152,85 +153,10 @@
   {% else %}
     <p>There are no sponsors at the moment.  Join our mailing list and be the first to know.</p>
   {% endif %}
-
+      <a href='mailto:{% get_content "email" "info@grandviewfc.org"%}' class="text-light">{% get_content "sponsor_appeal" "Contact Grandview FC and become a sponsor today!" %}</a>
     </div>
-<a id="news"></a>
 
-    <div class="latest-news">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 title-section">
-            <h2 class="heading">Latest News</h2>
-          </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="#">
-                <img src="{% static 'web/images/img_1.jpg'%}" alt="Image" class="img-fluid">
-              </a>
-              <div class="caption">
-                <div class="caption-inner">
-                  <h3 class="mb-3">Romolu to stay at Real Nadrid?</h3>
-                  <div class="author d-flex align-items-center">
-                    <div class="img mb-2 mr-3">
-                      <img src="{% static 'web/images/person_1.jpg'%}" alt="">
-                    </div>
-                    <div class="text">
-                      <h4>Mellissa Allison</h4>
-                      <span>May 19, 2020 &bullet; Sports</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="#">
-                <img src="{% static 'web/images/img_3.jpg'%}" alt="Image" class="img-fluid">
-              </a>
-              <div class="caption">
-                <div class="caption-inner">
-                  <h3 class="mb-3">Kai Nets Double To Secure Comfortable Away Win</h3>
-                  <div class="author d-flex align-items-center">
-                    <div class="img mb-2 mr-3">
-                      <img src="{% static 'web/images/person_1.jpg'%}" alt="">
-                    </div>
-                    <div class="text">
-                      <h4>Mellissa Allison</h4>
-                      <span>May 19, 2020 &bullet; Sports</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="post-entry">
-              <a href="#">
-                <img src="{% static 'web/images/img_2.jpg'%}" alt="Image" class="img-fluid">
-              </a>
-              <div class="caption">
-                <div class="caption-inner">
-                  <h3 class="mb-3">Dogba set for Juvendu return?</h3>
-                  <div class="author d-flex align-items-center">
-                    <div class="img mb-2 mr-3">
-                      <img src="{% static 'web/images/person_1.jpg'%}" alt="">
-                    </div>
-                    <div class="text">
-                      <h4>Mellissa Allison</h4>
-                      <span>May 19, 2020 &bullet; Sports</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
-    </div>
     <a id="matches"></a>
 
     <div class="site-section bg-dark">
@@ -359,145 +285,40 @@
       </div>
     </div> <!-- .site-section -->
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-6 title-section">
-            <h2 class="heading">Videos</h2>
-          </div>
-          <div class="col-6 text-right">
-            <div class="custom-nav">
-            <a href="#" class="js-custom-prev-v2"><span class="icon-keyboard_arrow_left"></span></a>
-            <span></span>
-            <a href="#" class="js-custom-next-v2"><span class="icon-keyboard_arrow_right"></span></a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="owl-4-slider owl-carousel">
-          <div class="item">
-            <div class="video-media">
-              <img src="{% static 'web/images/img_1.jpg'%}" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Dogba set for Juvendu return?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="{% static 'web/images/img_2.jpg'%}" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Kai Nets Double To Secure Comfortable Away Win</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="{% static 'web/images/img_3.jpg'%}" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Romolu to stay at Real Nadrid?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="video-media">
-              <img src="{% static 'web/images/img_1.jpg'%}" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Dogba set for Juvendu return?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="{% static 'web/images/img_2.jpg'%}" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Kai Nets Double To Secure Comfortable Away Win</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="{% static 'web/images/img_3.jpg'%}" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Romolu to stay at Real Nadrid?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
+    <a id="news"></a>
     <div class="container site-section">
       <div class="row">
         <div class="col-6 title-section">
           <h2 class="heading">Club News</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-6">
+
+   {% if news_list %}
+                <div class="row">
+    {% for news in news_list %}
+         <div class="col-lg-6 m-1">
           <div class="custom-media d-flex">
             <div class="img mr-4">
-              <img src="{% static 'web/images/img_1.jpg'%}" alt="Image" class="img-fluid">
+              <img src="{{ news.image.url }}" alt="Image" class="img-fluid">
             </div>
             <div class="text">
-              <span class="meta">May 20, 2020</span>
-              <h3 class="mb-4"><a href="#">Romolu to stay at Real Nadrid?</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
-              <p><a href="#">Read more</a></p>
+              <span class="meta">{{ news.created_on }}</span>
+              <h3 class="mb-4"><a href="#">{{ hews.headline }}</a></h3>
+              <p>{{ news.summary }}</p>
+              <p><a href="#" class="text-light">Read more</a></p>
             </div>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="custom-media d-flex">
-            <div class="img mr-4">
-              <img src="{% static 'web/images/img_3.jpg'%}" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <span class="meta">May 20, 2020</span>
-              <h3 class="mb-4"><a href="#">Romolu to stay at Real Nadrid?</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
-              <p><a href="#">Read more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+         </div>
 
+    {% endfor %}
+                </div>
 
+  {% else %}
+    <p>No news at the moment.  Join our mailing list and be the first to know.</p>
+  {% endif %}
+</div>
+
+<a id="contact"></a>
 
     <footer class="footer-section">
       <div class="container">
@@ -506,11 +327,11 @@
             <div class="widget mb-3">
               <h3>News</h3>
               <ul class="list-unstyled links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#">Sponsors</a></li>
-                <li><a href="#">Matches</a></li>
-                <li><a href="#">Club News</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#top" class="scrollLink">Home</a></li>
+                <li><a href="#sponsors" class="scrollLink">Sponsors</a></li>
+                <li><a href="#matches" class="scrollLink">Matches</a></li>
+                <li><a href="#news" class="scrollLink">Club News</a></li>
+                <li><a href="#contact" class="scrollLink">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -520,15 +341,30 @@
             <div class="widget mb-3">
               <h3>Social</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Twitter</a></li>
                 <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Youtube</a></li>
+                <li><a href="https://www.instagram.com/explore/tags/grandviewfc/">Instagram</a></li>
               </ul>
             </div>
           </div>
 
+          <div class="col-lg-6">
+            <div class="widget mb-3">
+              <h3>Contact</h3>
+              <p class="text-light">{% get_content "address_name" "John Smith"%}
+              <br/>{% get_content "address_street" "1150 Main St."%}
+              <br/>{% get_content "address_city_state_post" "Grandview Heights, Ohio 43212"%}
+               <br/><a href='tel:{% get_content "phone" "614-555-1212"%}' class="text-light">{% get_content "phone" "614-555-1212"%}</a>
+
+               <br/><a href='mailto:{% get_content "email" "info@grandviewfc.org"%}' class="text-light">{% get_content "email" "info@grandviewfc.org"%}</a>
+
+              </p>
+
+            </div>
+          </div>
         </div>
+
+
+
 
         <div class="row text-center">
           <div class="col-md-12">
@@ -567,9 +403,17 @@
   <script src="{% static 'web/js/jquery.sticky.js'%}"></script>
   <script src="{% static 'web/js/jquery.mb.YTPlayer.min.js'%}"></script>
 
-
   <script src="{% static 'web/js/main.js'%}"></script>
-
+    <script>
+      $(document).ready(function() {
+          $("a.scrollLink").click(function(event) {
+              event.preventDefault();
+              $("html, body").animate({
+                  scrollTop: $($(this).attr("href")).offset().top
+                }, 500);
+            });
+        });
+    </script>
 </body>
 
 </html>

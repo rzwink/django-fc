@@ -20,7 +20,7 @@ if "PRODUCTION" in os.environ:
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 AWS_DEFAULT_ACL = None
 
 AWS_QUERYSTRING_AUTH = True
@@ -159,6 +159,7 @@ MEDIA_URL = "media/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 STATIC_ROOT = "www-static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "www-media")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

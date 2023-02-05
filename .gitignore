@@ -2,6 +2,7 @@
 teamsnap_auth.sh
 djangofc*
 www/
+www-static/
 #www-media/
 #www-static/
 __pycache__/

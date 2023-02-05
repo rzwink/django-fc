@@ -10,10 +10,10 @@ python-dotenv = "*"
 django-storages = "*"
 boto3 = "*"
 whitenoise = "*"
-pyteamsnap = {file = "https://github.com/anthonyscorrea/pyteamsnap/archive/refs/heads/master.zip"}
 django-oauth-toolkit = "*"
 django-cors-middleware = "*"
 mysqlclient = "*"
+pyteamsnap = {file = "https://github.com/anthonyscorrea/pyteamsnap/archive/refs/heads/master.zip"}
 
 [dev-packages]
 pre-commit = "*"

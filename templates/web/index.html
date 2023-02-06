@@ -80,7 +80,7 @@
 
     </header>
 
-    <div class="hero overlay" style="background-image: url('{% static 'web/images/bg_3.jpg'%}');">
+    <div class="hero overlay" style="background-image: url('{% static 'web/images/colorful_background.jpg'%}');">
         <div class="container">
             <div class="row align-items-center">
 
@@ -176,8 +176,8 @@
                     <div class="widget mb-3">
                         <h3>Social</h3>
                         <ul class="list-unstyled links">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="https://www.instagram.com/explore/tags/grandviewfc/">Instagram</a></li>
+                            <li><a href="{% get_content "facebook_link" "https://m.facebook.com/groups/562115842312491/?ref=web"%}" target="_new">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/explore/tags/grandviewfc/" target="_new">Instagram</a></li>
                         </ul>
                     </div>
                 </div>
@@ -190,7 +190,7 @@
                             <br/>{% get_content "address_city_state_post" "Grandview Heights, Ohio 43212"%}
                             <br/><a href='tel:{% get_content "phone" "614-555-1212"%}' class="text-light">{% get_content "phone" "614-555-1212"%}</a>
 
-                            <br/><a href='mailto:{% get_content "email" "info@grandviewfc.org"%}' class="text-light">{%get_content "email" "info@grandviewfc.org"%}</a>
+                            <br/><a href='mailto:{% get_content "email" "info@grandviewfc.org"%}' class="text-light"><u>{%get_content "email" "info@grandviewfc.org"%}</u></a>
 
                         </p>
 

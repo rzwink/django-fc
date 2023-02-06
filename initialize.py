@@ -12,15 +12,16 @@ django.setup()
 from django.contrib.auth import get_user_model  # noqa
 
 INITIALIZE = os.environ.get("INIT_PASS", False)
+INIT_USER = os.environ.get("INIT_USER", False)
 
 users = get_user_model().objects.all()
 
-if INITIALIZE:
+if INITIALIZE and INIT_USER:
     print("Initializing")
 
     try:
         admin_user = get_user_model().objects.create_superuser(
-            "rzwink@gmail.com", "rzwink@gmail.com", os.environ.get("INIT_PASS")
+            INIT_USER, INIT_USER, os.environ.get("INIT_PASS")
         )
         admin_user.save()
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 {% load tags %}
+{% load crispy_forms_tags %}
 
 <html lang="en">
 
@@ -8,8 +9,7 @@
     <title>{% get_content "site_title" "Grandview FC - Where Soccer is for everyone"%}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="http://fonts.cdnfonts.com/css/bookman-old-style" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/bookman-old-style" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -38,6 +38,31 @@
 </head>
 
 <body>
+{% if messages %}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
 <a id="top"></a>
 <div class="site-wrap">
 
@@ -85,12 +110,14 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-5 ml-auto">
-                    <h3>{% get_content "headline" "Grandview FC, where Soccer is for everyone." %}</h3>>
+                    <h3>{% get_content "headline" "Grandview FC, where Soccer is for everyone." %}</h3>
                     <h4>{% get_content "vision" "Our vision is to provide the residents of Grandview and the surrounding communities with an accessible and enjoyable opportunity to participate in an organized and competitive youth soccer program." %}</h4>
                 </div>
             </div>
         </div>
     </div>
+
+
 
 
     <div class="container">
@@ -153,9 +180,20 @@
         </p>
     </div>
 
+    <div class="container">
 
+
+        <div class="row">
+            <div class="col-lg-12">
     <a id="contact"></a>
-
+{% block content %}
+  <form method="post" >
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success center">Contact Grandview FC</button>
+  </form>
+{% endblock %}
+    </div></div></div>
     <footer class="footer-section">
         <div class="container">
             <div class="row">
@@ -236,7 +274,6 @@
 <script src="{% static 'web/js/jquery.fancybox.min.js'%}"></script>
 <script src="{% static 'web/js/jquery.sticky.js'%}"></script>
 <script src="{% static 'web/js/jquery.mb.YTPlayer.min.js'%}"></script>
-
 <script src="{% static 'web/js/main.js'%}"></script>
 <script>
       $(document).ready(function() {
@@ -249,6 +286,15 @@
         });
 
 </script>
+{% if messages %}
+
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('#exampleModal').modal({show:true});
+    });
+</script>
+{% endif %}
+
 </body>
 
 </html>

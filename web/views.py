@@ -1,6 +1,8 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.views import generic
 
+from web.forms.contact import ContactWithCaptchaForm
 from web.models import Content
 from web.models import News
 from web.models import Product
@@ -9,6 +11,20 @@ from web.models import Sponsor
 
 def index(request):
     """View function for home page of site."""
+    if request.POST:
+        form = ContactWithCaptchaForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Form submission successful")
+        else:
+            messages.success(
+                request,
+                "Form submission unsuccessful.  Please try again or contact us directly.",
+            )
+
+    else:
+        form = ContactWithCaptchaForm()
 
     # Generate counts of some of the main objects
     num_books = Product.objects.all().count()
@@ -18,6 +34,7 @@ def index(request):
         "product_list": Product.objects.filter(is_active=True),
         "sponsor_list": Sponsor.objects.filter(is_active=True),
         "news_list": News.objects.filter(is_active=True),
+        "form": ContactWithCaptchaForm(),
     }
 
     # Render the HTML template index.html with the data in the context variable

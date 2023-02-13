@@ -14,6 +14,16 @@ body {
   background: #000;
   color: #fff; }
 
+#message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#inner-message {
+    margin: 0 auto;
+}
+
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;

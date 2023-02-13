@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from .models import Contact
 from .models import Content
 from .models import News
 from .models import Product
@@ -44,6 +45,15 @@ class ContentAdmin(admin.ModelAdmin):
         "id",
         "slug",
         "content",
+    ]
+
+
+@admin.register(Contact)
+class ContentAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "name",
+        "email",
     ]
 
 

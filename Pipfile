@@ -14,6 +14,9 @@ django-oauth-toolkit = "*"
 django-cors-middleware = "*"
 mysqlclient = "*"
 pyteamsnap = {file = "https://github.com/anthonyscorrea/pyteamsnap/archive/refs/heads/master.zip"}
+django-simple-captcha = "*"
+django-crispy-forms = "*"
+crispy-bootstrap4 = "*"
 
 [dev-packages]
 pre-commit = "*"

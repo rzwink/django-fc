@@ -53,11 +53,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "oauth2_provider",
+    "crispy_forms",
+    "crispy_bootstrap4",
     "users",
     "teamsnap",
+    "captcha",
     "web",
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -171,3 +176,6 @@ AUTH_USER_MODEL = "users.User"
 LOGIN_URL = "/admin/login/"
 
 TEAM_SNAP_TOKEN = os.environ.get("TEAM_SNAP_TOKEN", None)
+
+RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY", None)
+RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY", None)

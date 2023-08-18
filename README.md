@@ -40,6 +40,8 @@ may cause errors during the next step if not installed.  You can try to skip thi
       2. developer packages - see .ebextenstions/002_packages.config for packages installed in production by default
    8. Install project dependencies
    ```commandline
+   sudo apt install python3-dev libmysqlclient-dev default-libmysqlclient-dev
+
     pipenv install
    ```
    9. This project uses pre-commit Black to ensure code formatting standards are adhered.  Do not skip this step:
@@ -48,7 +50,7 @@ may cause errors during the next step if not installed.  You can try to skip thi
     ```
 
 2. setup .env by renaming .env.example and adding relevant keys, or receive .env file by
-contacting rob@raziexchange.com.  The following commands will not work without a valid .env
+contacting rob.  The following commands will not work without a valid .env
 
 3. Initialize a sqlite database
 ```commandline
@@ -64,7 +66,3 @@ python initialize.py
 python manage.py runserver
 ```
 9. login by accessing https://localhost:8000/    Click Login, enter credentials specified in initialize.py
-
-
-## Developers
-Robert Zwink

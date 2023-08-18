@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact
+from .models import Contact, Team
 from .models import Content
 from .models import News
 from .models import Product
@@ -63,5 +63,15 @@ class NewsAdmin(admin.ModelAdmin):
         "id",
         "headline",
         "summary",
+        "created_on",
+    ]
+
+
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "name",
+        "ical_games_url",
         "created_on",
     ]

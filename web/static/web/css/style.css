@@ -617,7 +617,7 @@ h1, h2, h3, h4, h5,
   background-position: center center; }
   .hero, .hero > .container > .row {
     height: 100vh;
-    min-height: 500px; }
+    min-height: 130px; }
   .hero.overlay:before {
     content: "";
     position: absolute;

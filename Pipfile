@@ -17,6 +17,9 @@ pyteamsnap = {file = "https://github.com/anthonyscorrea/pyteamsnap/archive/refs/
 django-simple-captcha = "*"
 django-crispy-forms = "*"
 crispy-bootstrap4 = "*"
+icalendar = "*"
+requests = "*"
+pytz = "*"
 
 [dev-packages]
 pre-commit = "*"

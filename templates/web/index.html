@@ -150,24 +150,27 @@
                 </div>
 
                 {% if sponsor_list %}
-                    <div class="row">
-                        {% for sponsor in sponsor_list %}
-                            <div class="col-lg-6 mb-3">
-                                <div class="custom-media d-flex">
-                                    <div class="img mr-4">
-                                        <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }} Logo" class="img-fluid">
-                                    </div>
-                                    <div class="text">
-                                        <h1 class="mb-4"><a href="#" class="text-light">{{ sponsor.name }} </a></h1>
-                                        <p>{{ sponsor.description }} </p>
-                                        <h3 class="mb-4"><a href="{{ sponsor.link }}" target="_new" class="text-light">Learn More <i
-                                            class="fa-solid fa-up-right-from-square"></i></a></h3>
-                                    </div>
-                                </div>
-                            </div>
+<div class="row">
+    {% for sponsor in sponsor_list %}
+        <div class="col-lg-6 mb-3">
+            <div class="custom-media d-flex flex-column flex-md-row align-items-start p-2 p-md-0">
+                <div class="img mb-3 mb-md-0 mr-md-4">
+                    {% if sponsor.logo %}
+                    <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }} Logo" class="img-fluid">
+                    {% endif %}
+                </div>
+                <div class="text">
+                    <h1 class="mb-4"><a href="#" class="text-light">{{ sponsor.name }} </a></h1>
+                    <p>{{ sponsor.description }} </p>
+                    <h3 class="mb-4"><a href="{{ sponsor.link }}" target="_new" class="text-light">Learn More <i
+                        class="fa-solid fa-up-right-from-square"></i></a></h3>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
-                        {% endfor %}
-                    </div>
+
 
                 {% else %}
                     <p>There are no sponsors at the moment. Join our mailing list and be the first to know.</p>
